@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDAh-BuDuPWp50JhcpgJfB4XHb1p_NNGEI",
+    authDomain: "dizzy-now.firebaseapp.com",
+    databaseURL: "https://dizzy-now.firebaseio.com",
+    projectId: "dizzy-now",
+    storageBucket: "dizzy-now.appspot.com",
+    messagingSenderId: "815037123512"
+  }
 };
 
 /*
