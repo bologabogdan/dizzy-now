@@ -1,36 +1,43 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-  <div class="authBlock">
-  <h3>Sign Up</h3>
-  <div class="formGroup">
-  <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+<div class="w-full mt-8 pt-8">
+  <div class="p-8">
+
+    <div class="authBlock p-8">
+
+      <h2 class="pb-8 mb-8 text-center text-black">REGISTER</h2>
+
+      <div class="formGroup text-center mb-2">
+        <input type="email" class="formControl  p-4 rounded border border-grey border-solid" placeholder="Email Address" #userEmail required>
+      </div>
+
+      <div class="formGroup text-center mb-2">
+        <input type="password" class="formControl  p-4 rounded border border-grey border-solid" placeholder="Password" #userPwd required>
+      </div>
+
+      <div class="formGroup mb-2 mx-2">
+        <input type="button" class="p-4 rounded w-full bg-orange-400 text-white" value="Register"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <!-- Continue with Google 
+      <div class="formGroup">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Continue with Google
+        </button>
+      </div> -->
+      <!-- Continue with Facebook 
+      <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
+          <i class="fab fa-facebook"></i>
+          Continue with Facebook
+        </button> 
+      </div>-->
+
+      <div class="redirectToLogin text-center text-grey pt-8">
+          <span class="redirect" routerLink="/sign-in">Already have an account? </span>
+        </div>
+
+    </div>
+
   </div>
-  <div class="formGroup">
-  <input type="password" class="formControl" placeholder="Password" #userPwd required>
-  </div>
-  <div class="formGroup">
-  <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-  </div>
-  <div class="formGroup">
-  <span class="or"><span class="orInner">Or</span></span>
-  </div>
-  <!-- Continue with Google -->
-  <div class="formGroup">
-  <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-  <i class="fab fa-google-plus-g"></i>
-  Continue with Google
-  </button>
-  </div>
-  <!-- Continue with Facebook -->
-  <div class="formGroup">
-  <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
-  <i class="fab fa-facebook"></i>
-  Continue with Facebook
-  </button>
-  </div>
-  </div>
-  <div class="redirectToLogin">
-  <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
-  </div>
-  </div>
-  </div>
+</div>

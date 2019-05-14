@@ -21,8 +21,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "^7.2.14",
     "@ng-bootstrap/ng-bootstrap": "^4.1.2",
-    "angularfire2": "^5.1.2",
-    "bootstrap": "^4.3.1",
+    "angularfire2": "^5.0.0",
     "core-js": "^2.5.4",
     "firebase": "^5.10.1",
     "rxjs": "~6.5.1",
@@ -46,7 +45,6 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
-    "tailwindcss": "^0.7.4",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
