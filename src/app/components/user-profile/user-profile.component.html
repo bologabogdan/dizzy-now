@@ -8,14 +8,14 @@
 
         <div *ngIf="authService.userData as user" class="px-8">
               <div>
-                <h3 class="mb-2"><strong>User ID:</strong> {{user.uid}}</h3>
-                <h3 class="mb-2"><strong>E-mail:</strong> {{user.email}}</h3>
-                <h3 class="mb-2"><strong>E-mail Verified:</strong> {{user.emailVerified}}</h3>
+                <h3 class="mb-2 text-blue-900"><strong>User ID:</strong> {{user.uid}}</h3>
+                <h3 class="mb-2 text-blue-900"><strong>E-mail:</strong> {{user.email}}</h3>
+                <h3 class="mb-2 text-blue-900"><strong>E-mail Verified:</strong> {{user.emailVerified}}</h3>
               </div>
         </div>
 
 
-    <div class="pt-8 w-1/3 pl-8">
+    <div class="pt-8 w-2/3 mx-auto">
         <input type="button" class="p-4 rounded w-full bg-red-600 text-white" value="Log out" (click)="authService.SignOut()">
       </div>
 

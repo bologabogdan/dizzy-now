@@ -31,6 +31,7 @@ import { ExercisesComponent } from './components/exercises/exercises.component';
 import { HistoryComponent } from './components/history/history.component';
 import { MeasureComponent } from './components/measure/measure.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { LevelsComponent } from './components/levels/levels.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ExercisesComponent,
     HistoryComponent,
     MeasureComponent,
-    ContactComponent
+    ContactComponent,
+    LevelsComponent
   ],
   imports: [
     BrowserModule,

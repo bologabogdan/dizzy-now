@@ -12,6 +12,7 @@ import { HistoryComponent} from '../../components/history/history.component';
 import { ExercisesComponent} from '../../components/exercises/exercises.component';
 import { MeasureComponent} from '../../components/measure/measure.component';
 import { ContactComponent} from '../../components/contact/contact.component';
+import { LevelsComponent} from '../../components/levels/levels.component';
 
 // Import canActivate guard services
 import { AuthGuard } from '../../shared/guard/auth.guard';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'exercises', component: ExercisesComponent, canActivate: [AuthGuard]},
   { path: 'measure', component: MeasureComponent, canActivate: [AuthGuard]},
   { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
+  { path: 'levels', component: LevelsComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
