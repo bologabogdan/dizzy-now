@@ -3,19 +3,21 @@
   
       <div class="authBlock p-8">
   
-        <h2 class="pb-8 text-center text-black">THANK YOU!</h2>
-  <div class="formGroup text-center text-grey pb-8" *ngIf="authService.userData as user">
-  <p class="text-center pb-4">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-  <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+        <div class="pb-8 text-center text-black"><img class="" src="assets/images/logo.png"></div>
+  
+        <div class="text-center text-blue-900 pb-8" *ngIf="authService.userData as user">
+  
+          <p class="text-center pb-4">We have sent a confirmation email to <strong>{{user.email}}</strong>. Please check your email and click on the link to verfiy your email address.</p>
+  
   </div>
 
   <!-- Calling SendVerificationMail() method using authService Api -->
   <div class="formGroup mb-2 mx-2">
-  <button type="button" class="p-4 rounded w-full bg-orange text-white" (click)="authService.SendVerificationMail()">
+  <button type="button" class="p-4 rounded w-full bg-blue-900 text-white" (click)="authService.SendVerificationMail()">
   Resend verification
   </button>
   </div>
-  <div class="redirectToLogin  text-center text-grey mb-2 pt-8">
+  <div class="redirectToLogin  text-center text-blue-900 mb-2 pt-8">
      <span class="redirect" routerLink="/sign-in">Back to login?</span>
       </div>
   </div>
