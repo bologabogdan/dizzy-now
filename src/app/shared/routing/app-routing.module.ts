@@ -7,6 +7,11 @@ import { SignUpComponent } from '../../components/sign-up/sign-up.component';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
+import { UserProfileComponent} from '../../components/user-profile/user-profile.component';
+import { HistoryComponent} from '../../components/history/history.component';
+import { ExercisesComponent} from '../../components/exercises/exercises.component';
+import { MeasureComponent} from '../../components/measure/measure.component';
+import { ContactComponent} from '../../components/contact/contact.component';
 
 // Import canActivate guard services
 import { AuthGuard } from '../../shared/guard/auth.guard';
@@ -20,6 +25,11 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard]},
+  { path: 'history', component: HistoryComponent, canActivate: [AuthGuard]},
+  { path: 'exercises', component: ExercisesComponent, canActivate: [AuthGuard]},
+  { path: 'measure', component: MeasureComponent, canActivate: [AuthGuard]},
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

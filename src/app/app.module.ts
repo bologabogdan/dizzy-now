@@ -24,8 +24,13 @@ import { environment } from '../environments/environment';
 
 // Auth service
 import { AuthService } from './shared/services/auth.service';
-import { NavigationComponent } from './navigation/navigation.component';
-import { HeaderComponent } from './header/header.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ExercisesComponent } from './components/exercises/exercises.component';
+import { HistoryComponent } from './components/history/history.component';
+import { MeasureComponent } from './components/measure/measure.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -37,7 +42,12 @@ import { HeaderComponent } from './header/header.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserProfileComponent,
+    ExercisesComponent,
+    HistoryComponent,
+    MeasureComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
