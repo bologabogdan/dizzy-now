@@ -82,10 +82,6 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
@@ -116,6 +112,7 @@ export class AuthService {
       merge: true
     })
   }
+
 
   // Sign out 
   SignOut() {

@@ -19,12 +19,11 @@ export class MeasureComponent implements OnInit {
 
   ngOnInit() {
 
-    var slider = document.getElementById('myRange');
-    var output = document.getElementById('demo');
-    output.innerHTML = slider.value;
-    
+    const slider = document.getElementById('myRange');
+    const output = document.getElementById('demo');
+    output.innerHTML = (slider as HTMLInputElement).value;
     slider.oninput = function() {
-      output.innerHTML = this.value;
+      output.innerHTML = (event.target as HTMLInputElement).value;
     }
   }
 
