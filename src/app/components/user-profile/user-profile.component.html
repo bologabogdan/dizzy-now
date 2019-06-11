@@ -6,13 +6,12 @@
         <div class="mt-2 w-8 h-2 bg-blue-900"></div>
       </div>
 
-        <div *ngIf="authService.userData as user" class="px-8">
-              <div>
-                <h3 class="mb-2 text-blue-900"><strong>User ID:</strong> {{user.uid}}</h3>
-                <h3 class="mb-2 text-blue-900"><strong>E-mail:</strong> {{user.email}}</h3>
-                <h3 class="mb-2 text-blue-900"><strong>E-mail Verified:</strong> {{user.emailVerified}}</h3>
-              </div>
-        </div>
+        <div *ngFor="let user of users" class="px-8">
+            
+        
+                      <h1 class="text-blue-900 mb-2"><span class="font-bold text-xl text-blue-900">Full name </span><br>{{user.firstName}} {{user.lastName}}</h1>
+                      <h1 class="text-blue-900"><span class="font-bold text-xl text-blue-900">E-mail </span><br>{{user.Email}}</h1>
+             </div>
 
 
     <div class="pt-8 w-2/3 mx-auto">

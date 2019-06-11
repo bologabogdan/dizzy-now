@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +47,14 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(fname, lname, email, password, doctor) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.CreateUser(result.user, email, doctor, fname, lname);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -114,6 +116,7 @@ export class AuthService {
   }
 
 
+
   // Sign out 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
@@ -122,4 +125,66 @@ export class AuthService {
     })
   }
 
+
+
+  CreateUser(user, email, doctor, fname, lname) {
+    let doctorRef = this.afs.doc('physiotherapists/' + doctor).ref;
+    return this.afs.collection('patients').doc(user.uid).set({
+      firstName: fname,
+      lastName: lname,
+      Email: email,
+      physiotherapistsID: doctorRef
+    });
+  }
+
+
+  Measurement(dizziness, note){
+    let userData = JSON.parse(localStorage.getItem('user'));
+    return this.afs.collection('patients').doc(userData.uid).collection('daily-measurement').add({
+      level: parseInt(dizziness),
+      note: note,
+      date: new Date()
+  } )
+  .then((result) => {
+    this.router.navigate(['history']);}).catch((error) => {
+    window.alert(error.message)
+  })
+
 }
+
+  
+  GetDoctor(){
+    return this.afs.collection('physiotherapists').snapshotChanges();
+  }
+
+  GetExercise(){
+    return this.afs.collection('exercises').snapshotChanges();
+  }
+  
+
+  GetUserData(){
+    let userdata = JSON.parse(localStorage.getItem('user'));
+    return this.afs.collection('patients').doc(userdata.uid).valueChanges();
+  
+}
+
+
+GetHistory(){
+  let dailyMeasurement = JSON.parse(localStorage.getItem('user'))
+  return this.afs.collection('patients').doc(dailyMeasurement.uid).collection('daily-measurement').snapshotChanges();
+
+}
+
+
+//   Edit(firstName, lastName){
+//   let userdata = JSON.parse(localStorage.getItem('user'));
+//   return this.afs.collection('patients').doc(userdata.uid).update({
+//   firstName: firstName,
+//   lastName: lastName
+// })
+//     }
+
+}
+
+
+

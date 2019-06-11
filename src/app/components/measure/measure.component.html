@@ -12,7 +12,7 @@
   <div class="slidecontainer p-8 pb-0">
       <h1 class="text-xl text-gray-400 font-bold text-center">Level</h1>
       <h1 class="text-4xl text-blue-900 font-bold text-center pb-8" id="demo"></h1>
-      <input type="range" min="1" max="10" value="10" class="slider bg-teal-200" id="myRange">
+      <input type="range" min="1" max="10" value="10" class="slider bg-teal-200" id="myRange" #range>
       <div class="flex w-full">
 <div class="w-2/4 text-left text-sm pt-2  text-gray-500"><span class="text-blue-900 font-bold">1</span><br> Minimal<br>dizziness</div>
 <div class="w-2/4 text-right text-sm pt-2 text-gray-500"><span class="text-blue-900 font-bold">10</span><br> Unable to<br>move</div>
@@ -27,10 +27,10 @@
       </div>
 
     <div class="p-8 mb-24">
-  <textarea class="w-full bg-gray-200 rounded h-24 p-4" placeholder="Insert your notes here" name="note" id="" cols="30" rows="10"></textarea>
+  <textarea class="w-full bg-gray-200 rounded h-24 p-4" placeholder="Insert your notes here" name="note" id="" cols="30" rows="10" #note></textarea>
    
   <div class="float-right py-4">
-      <button class="bg-blue-900 py-4 px-8 rounded-full text-white font-bold">Record</button>
+      <button class="bg-blue-900 py-4 px-8 rounded-full text-white font-bold" (click)="authService.Measurement(range.value, note.value)">Record</button>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-<div class="w-full mt-8 pt-8">
+<div class="w-full">
   <div class="p-8">
 
     <div class="authBlock p-8">
@@ -6,6 +6,16 @@
 
   <div class="pb-8 mb-8 text-center text-black"><img class="" src="assets/images/logo.png"></div>
   <div class="w-full">
+
+      <div class="text-center mb-2">
+          <input type="name" class="w-full p-4 rounded border border-grey border-solid" placeholder="First name" #firstName required>
+        </div>
+
+        <div class="text-center mb-2">
+            <input type="name" class="w-full p-4 rounded border border-grey border-solid" placeholder="Last name" #lastName required>
+          </div>
+
+
       <div class="text-center mb-2">
         <input type="email" class="w-full p-4 rounded border border-grey border-solid" placeholder="Email Address" #userEmail required>
       </div>
@@ -14,9 +24,18 @@
         <input type="password" class="w-full p-4 rounded border border-grey border-solid" placeholder="Password" #userPwd required>
       </div>
 
+      <div class="text-center mb-2">
+        <select #userDoctor required class="w-full p-4 rounded border border-grey border-solid">
+          <option value="">Choose doctor</option>
+        <option class="min-w-0" *ngFor="let doctor of doctors" value="{{doctor.payload.doc.id}}">
+          {{doctor.payload.doc.data().firstName}} {{doctor.payload.doc.data().lastName}}</option>
+        
+      </select>
+    </div>
+
       <div class="mb-2">
         <input type="button" class="p-4 rounded w-full bg-blue-900 text-white font-bold" value="Register"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)">
+          (click)="authService.SignUp(firstName.value, lastName.value, userEmail.value, userPwd.value, userDoctor.value)">
       </div>
     </div>
 

@@ -9,14 +9,25 @@ import { Router } from "@angular/router";
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-
+  history: Array<any>;
   constructor(
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone
   ) { }
 
-  ngOnInit() {
+  ngOnInit()
+
+  {
+  this.getData(); 
+  }
+  
+      getData() {
+          this.authService.GetHistory().subscribe(result => {
+              this.history = result;
+          })
+      } 
+  
+  
   }
 
-}

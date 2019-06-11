@@ -5,5 +5,29 @@
     <div class="mt-2 w-8 h-2 bg-blue-900"></div>
   </div>
 
+  <div class="p-8">
+      <div *ngFor="let history of history" class="mb-4 bg-gray-200 rounded w-full" >
+        <div class="flex p-4">
+
+            <div class="w-1/2">
+              <h2 class="font-bold">Dizziness level</h2>
+              <p class="text-blue-900">{{history.payload.doc.data().level}}</p>
+            </div>
+            <div class="w-1/2">
+              <h2 class="font-bold">Date</h2>
+              <p class="text-blue-900">{{history.payload.doc.data().date.seconds * 1000 | date: 'MM-dd-yyyy'}}</p>
+            </div>
+          </div>
+            <div class="w-full p-4">
+              <h2 class="font-bold">Notes</h2>
+              <p class="text-blue-900">{{history.payload.doc.data().note}}</p>
+            </div>
+    
+    
+  
+           
+    
+          </div>
+              </div>
 
   <app-navigation></app-navigation>

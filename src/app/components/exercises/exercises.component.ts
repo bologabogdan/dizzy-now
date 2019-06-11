@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./exercises.component.css']
 })
 export class ExercisesComponent implements OnInit {
+  
+  exercises: Array<any>;
 
   constructor(
     public authService: AuthService,
@@ -17,6 +19,14 @@ export class ExercisesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.getData(); 
+}
+
+    getData() {
+        this.authService.GetExercise().subscribe(result => {
+            this.exercises = result;
+        })
+    } 
   }
 
-}
