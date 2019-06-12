@@ -1,3 +1,11 @@
-<div class="bg-gray-200 w-full">
-    <div class="w-1/4 block mx-auto py-6 text-center text-black" routerLink="/dashboard" ><img class="" src="assets/images/logo.png"></div>
+<div class="bg-gray-200 w-full shadow-md">
+  <div class="flex w-full">
+    <div class="w-1/4 ml-8 block mx-auto py-6 text-center text-black" routerLink="/dashboard" >
+      <img class="" src="assets/images/logo.png">
+    </div>
+    <div class="w-1/2 text-right p-8 pb-0">
+    <a routerLink="/user-profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+        true}" class="w-1/4  opacity-50  text-blue-900 "><i class="fa fa-user fa-lg pb-2"></i></a>
+    </div>
+  </div>
   </div>
