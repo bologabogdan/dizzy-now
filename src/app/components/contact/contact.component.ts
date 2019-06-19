@@ -9,13 +9,22 @@ import { Router } from "@angular/router";
 })
 export class ContactComponent implements OnInit {
 
+  private users: any = [];
+
   constructor(
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone
   ) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.getData();
   }
 
+  getData() {
+    this.authService.GetUserDataDoctor().subscribe(result => {
+        this.users.push(result);
+    })
+} 
 }

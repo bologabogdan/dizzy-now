@@ -1,9 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
+import { User } from '../services/user';
 import { auth } from 'firebase/app';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
@@ -168,6 +168,12 @@ export class AuthService {
   
 }
 
+GetUserDataDoctor(){
+  let userdata = JSON.parse(localStorage.getItem('user'));
+  return this.afs.collection('physiotherapists').doc(userdata.uid).valueChanges();
+
+}
+
 
 GetHistory(){
   let dailyMeasurement = JSON.parse(localStorage.getItem('user'))
@@ -176,13 +182,6 @@ GetHistory(){
 }
 
 
-//   Edit(firstName, lastName){
-//   let userdata = JSON.parse(localStorage.getItem('user'));
-//   return this.afs.collection('patients').doc(userdata.uid).update({
-//   firstName: firstName,
-//   lastName: lastName
-// })
-//     }
 
 }
 

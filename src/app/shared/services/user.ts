@@ -1,3 +1,5 @@
+import { Timestamp } from 'rxjs';
+
 export interface User {
     uid: string;
     email: string;
