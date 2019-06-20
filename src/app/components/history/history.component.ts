@@ -5,6 +5,7 @@ import * as Plotly from 'plotly.js';
 import { Daily } from '/../src/app/shared/services/feed';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { flatten } from '@angular/core/src/render3/util';
+import { Timestamp } from 'rxjs';
 
 
 @Component({
@@ -24,27 +25,25 @@ export class HistoryComponent implements OnInit {
     public ngZone: NgZone
   ) { }
 
-  @ViewChild('chart',{ read: ElementRef }) el: ElementRef;
+  @ViewChild('chart', { read: ElementRef }) el: ElementRef;
   public x = [];
-  public y= [];
-  
+  public y = [];
+
   feedCollection: AngularFirestoreCollection<Daily>;
 
-  ngOnInit()
-
-  {
+  ngOnInit() {
   this.getData();
-  this.getGraph()
+  this.getGraph();
   }
 
       getData() {
           this.authService.GetHistory().subscribe(result => {
               this.history = result;
-          })
+          });
       }
-      
-      getGraph(){
-        let userdata = JSON.parse(localStorage.getItem('user'));
+
+      getGraph() {
+        const userdata = JSON.parse(localStorage.getItem('user'));
         this.feedCollection = this.asf.collection('patients').doc(userdata.uid).collection('daily-measurement');
         this.feedCollection.snapshotChanges().subscribe(result => {
           return result.map( change => {
@@ -52,17 +51,17 @@ export class HistoryComponent implements OnInit {
             // this.y=change.payload.doc.data().Mood;
             this.x.push(change.payload.doc.data().level);
             this.y.push(change.payload.doc.data().level);
-          const element = this.el.nativeElement;
-          const data = [{
-            x:this.x,
-            y:this.y
-          }]
+            const element = this.el.nativeElement;
+            const data = [{
+            x: this.x,
+            y: this.y
+          }];
 
-          Plotly.plot(element, data);
-    
-    
-          })
-          }) 
+            Plotly.plot(element, data);
+
+
+          });
+          });
 
   }
 }

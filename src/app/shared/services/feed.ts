@@ -1,5 +1,7 @@
+import { Timestamp } from 'rxjs';
+
 export interface Daily {
-    date?: string;
+    date?: Timestamp<any>;
     level?: number;
     note?: string;
- }
+}
