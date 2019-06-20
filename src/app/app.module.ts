@@ -19,7 +19,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 // Firebase services + enviorment module
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 // Auth service
@@ -59,7 +59,10 @@ import { LevelsComponent } from './components/levels/levels.component';
     AngularFirestoreModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    {
+      provide: FirestoreSettingsToken, useValue: {}
+    }],
   bootstrap: [AppComponent]
 })
 
